@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class UserDetailViewController: UIViewController {
+class UserDetailViewController:UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var idLabel: UILabel!
@@ -44,7 +44,7 @@ class UserDetailViewController: UIViewController {
                        viewModel.modifiedOnSubject)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (id, name, email, createdOn, modifiedOn) in
-                self?.idLabel.text = id
+                self!.idLabel.text = id
                 self?.nameLabel.text = name
                 self?.emailLabel.text = email
                 self?.createdOnLabel.text = createdOn
